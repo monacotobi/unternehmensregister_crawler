@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys # For simulating keyboard inputs
 import time
+import random
 
 from utils import move_download
 
@@ -91,8 +92,10 @@ for i in range(totalGesListen):
     for b in range(back):
         driver.back()
 
-    time.sleep(5)
+    time.sleep(random.uniform(3, 10))
 
     new_file_name = company + " " + str(i)
 
     move_download(new_file_name)
+
+driver.close()
