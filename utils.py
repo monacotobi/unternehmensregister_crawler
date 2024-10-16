@@ -35,9 +35,7 @@ def move_and_rename_file(destination_folder:str, file:str, new_name:str):
     
     print(f"File moved and renamed to: {new_file_path}")
 
-if __name__ == "__main__":
+def move_download(new_name:str):
     destination_folder = "~/code/playground/crawler_unternehmensregister/data"
     file = get_most_recent_download()
-    new_name = "recap-1"
-    
     move_and_rename_file(destination_folder=destination_folder, file=file, new_name=new_name)
