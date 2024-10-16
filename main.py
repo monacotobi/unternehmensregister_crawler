@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys # For simulating keyboard inputs
 import time
 
+from utils import move_download
+
 # Provide the path to the ChromeDriver
 service = Service('./chromedriver/chromedriver')
 
@@ -17,7 +19,8 @@ button_cookie = driver.find_element(By.XPATH, '//button[@class="btn btn-gray"]')
 button_cookie.click()
 
 input_field = driver.find_element(By.XPATH, '//input[@id="globalSearchForm:extendedResearchCompanyName"]')
-input_field.send_keys('GetCouped Technologies GmbH')
+company = 'GetCouped Technologies GmbH'
+input_field.send_keys(company)
 
 button = driver.find_element(By.XPATH, '//input[@id="globalSearchForm:btnExecuteSearchOld"]')
 driver.implicitly_wait(5)
@@ -89,3 +92,7 @@ for i in range(totalGesListen):
         driver.back()
 
     time.sleep(5)
+
+    new_file_name = company + " " + str(i)
+
+    move_download(new_file_name)
